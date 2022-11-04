@@ -6,14 +6,26 @@ import Button from './components/Button';
 import LikeButton from './components/Like-Button';
 import Timer from './components/Timer';
 
+// const App = React.createClass({
+//     render: function() {
+//         return (
+//             <div className='container'>
+//                 <h1>Aplicação</h1>
+//                 <Title profession='Dev' name={{first:'Leonardo', last:'Aspas'}} year={2022}/* props*//>
+//             </div>
+//         )
+//     }
+// });
+
 class App extends Component{
     constructor () {
-        console.log('constructor')
+        console.log('constructor app')
         super()
         this.state = {
             text: 'aperte aqui',
             color: 'green',
-            showTimer: true
+            showTimer: true,
+            time: 0
         }
     }
     // render () {
@@ -49,39 +61,36 @@ class App extends Component{
     //         </div>
     //     )
     // }
+
     componentWillMount() {
-        console.log('componentWillMount');
+        console.log('componentWillMount app');
         // pode ser executado no lado do servidor: não fazer manipulação de DOM
     }
     componentDidMount () {
-        console.log('componentDidMount');
+        console.log('componentDidMount app');
         // executado somente no cliente: pode fazer manipulação de DOM
     }
     componentWillUnmount () {
         // Olhar o componente Timer
     }
     render () {
-        console.log('render');
+        console.log('render app');
         return (
             <div className='container'>
-                {this.state.showTimer && <Timer />}
+                {/* {this.state.showTimer && <Timer time={this.state.time}/>}
                 <Button handleClick={() => {
                     this.setState({showTimer: !this.state.showTimer})
-                }}>Show/Hide Timer</Button>
+                }}>Show/Hide Timer</Button> */}
+
+                <Timer time={this.state.time} />
+
+                <button onClick={() => {
+                    this.setState({time: this.state.time + 10})
+                }}>Change Props</button>
             </div>
         )
     }
 }
 
-// const App = React.createClass({
-//     render: function() {
-//         return (
-//             <div className='container'>
-//                 <h1>Aplicação</h1>
-//                 <Title profession='Dev' name={{first:'Leonardo', last:'Aspas'}} year={2022}/* props*//>
-//             </div>
-//         )
-//     }
-// });
 
 export default App
