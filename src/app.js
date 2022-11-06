@@ -7,6 +7,8 @@ import LikeButton from './components/Like-Button';
 import Timer from './components/Timer';
 import PropTypes from './components/PropTypes';
 
+
+
 // const App = React.createClass({
 //     render: function() {
 //         return (
@@ -93,15 +95,85 @@ class App extends Component{
     // }
 
     /* propTypes */
+    // render () {
+    //     return (
+    //         <div>
+    //             {/* <PropTypes handleClick='string'>Aperte aqui</PropTypes> */}
+    //             {/* <PropTypes>Aperte aqui</PropTypes> */}
+    //             <PropTypes handleClick={() => console.log('clicou')}>Aperte aqui</PropTypes>
+    //         </div>
+    //     )
+    // }
+
+    /* Forms */
+    constructor () {
+        super()
+        this.state = {
+            text: 'valor inicial',
+            checked: false,
+            option: '2'
+        }
+    }
     render () {
         return (
-            <div>
-                {/* <PropTypes handleClick='string'>Aperte aqui</PropTypes> */}
-                {/* <PropTypes>Aperte aqui</PropTypes> */}
-                <PropTypes handleClick={() => console.log('clicou')}>Aperte aqui</PropTypes>
-            </div>
+        // <form className='forms'>
+        //     {/* <input type='text' value={this.state.text} onChange={(e) => {
+        //         this.setState({text: e.target.value});
+        //     }}/>
+
+        //     <label>
+        //         <input type='checkbox'
+        //         checked={this.state.checked}
+        //         onChange={(e) => {
+        //             this.setState({checked: e.target.checked});
+        //         }}
+        //         />
+        //             Checkbox
+        //     </label>
+
+        //     <input type='radio' name='rd' value='1' defaultChecked/> Radio 1
+        //     <input type='radio' name='rd' value='2' /> Radio 2 */}
+
+        //     {/* <select value={this.state.option}
+        //     onChange={e => {
+        //         this.setState({option: e.target.value})
+        //     }}
+        //     >
+        //         <option value='1'>Opção 1</option>
+        //         <option value='2'>Opção 2</option>
+        //         <option value='3'>Opção 3</option>
+        //     </select> */}
+
+        //     {/* <textarea value={this.state.text}
+        //      onChange={e => {
+        //         this.setState({text: e.target.value});
+        //     }}/> */}
+
+
+        // </form>
+
+        <form 
+        className='forms'
+        onSubmit={e => {
+            e.preventDefault()
+            console.log('evet ', e);
+        }}
+
+        onChange={e => {
+            console.log('name', e.target.name);
+            console.log('value', e.target.value);
+        }}
+        >
+            <textarea name='textarea' value={this.state.text}
+              onChange={e => {
+                 this.setState({text: e.target.value});
+             }}/>
+
+             <button type='subtmit'>Enviar</button>
+        </form>
         )
     }
+
 }
 
 
